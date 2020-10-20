@@ -115,7 +115,7 @@ def run_swmm_mpc(config_file):
         f.write(str(vars(run)))
         f.write('\n')
 
-    pyswmm.lib.use('libswmm5_hs.so')
+    pyswmm.lib.use('libswmm5_hs.so')  # To use this lib, we need to install the modified pyswmm by 'pip install git+git://github.com/uva-hydroinformatics/pyswmm.git@feature_save_hotstart'
 
     # record when simulation begins
     beg_time = datetime.datetime.now()
@@ -156,7 +156,7 @@ def run_swmm_mpc(config_file):
                 raise ValueError(
                     '{} not valid opt method'.format(run.opt_method)
                     )
-            print best_policy, cost
+            print best_policy, cost 
 
             best_policy_fmt = ev.format_policies(best_policy,
                                                  run.ctl_str_ids,
